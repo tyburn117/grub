@@ -33,6 +33,8 @@ GRUB_MOD_LICENSE ("GPLv3+");
 #define SIGNATURE_INDEX 0x00
 #define DIRECTORY_INDEX 0x19
 
+#define UNUSED(x) (void)(x)
+
 static grub_extcmd_t cmd_read_fwconfig;
 
 struct grub_qemu_fwcfgfile {
@@ -52,6 +54,7 @@ static const struct grub_arg_option options[] =
 static grub_err_t
 grub_cmd_fwconfig (grub_extcmd_context_t ctxt, int argc, char **argv)
 {
+  UNUSED(ctxt);
   grub_uint32_t i, j, value = 0;
   struct grub_qemu_fwcfgfile file;
   char fwsig[4], signature[4] = { 'Q', 'E', 'M', 'U' };
